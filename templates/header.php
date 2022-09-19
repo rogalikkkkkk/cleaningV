@@ -7,6 +7,9 @@
             <?php
             if (isset($_COOKIE['role']) && $_COOKIE['role'] != 2) {
                 echo '<li><a href="../pages/my_page.php" class="nav-link px-2 text-white">Личный кабинет</a></li>';
+            } else {
+                echo '<li><a href="../pages/edit_equip.php" class="nav-link px-2 text-white">Учёт оборудования</a></li>
+                    <li><a href="../pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
             }
             if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
                 echo '<li><a href="../vendor/order" class="nav-link px-2 text-white">Заказ</a></li>';
