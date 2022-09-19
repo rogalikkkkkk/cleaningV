@@ -47,6 +47,7 @@
             ?>
         </div>
     </div>
+
 </header>
 <main class="flex-shrink-0">
     <div class="container">
@@ -67,9 +68,7 @@
     </div>
 </main>
 <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">Made by Виноградова Екатерина.</span>
-    </div>
+    <?php require_once ('templates/footer.php')?>
 </footer>
 </body>
 </html>

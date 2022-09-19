@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Профиль</title>
     <!-- CSS only -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -14,27 +14,7 @@
 </head>
 <body class="d-flex flex-column h-100">
 <header class="p-3 text-bg-dark">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
-
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="../index.php" class="nav-link px-2 text-white">Главная</a></li>
-                <li><a href="vendor/my_page.php" class="nav-link px-2 text-secondary">Личный кабинет</a></li>
-                <?php
-                if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
-                    echo '<li><a href="vendor/order" class="nav-link px-2 text-white">Заказ</a></li>';
-                }
-                ?>
-
-            </ul>
-            <form method="post" action="../vendor/logout.php">
-                <div class="text-end">
-                    <input type="submit" name="logout" value="Выйти" class="btn btn-warning"></input>
-                </div>
-            </form>
-        </div>
-    </div>
+    <?php require_once ('../templates/header.php')?>
 </header>
 <main class="flex-shrink-0">
     <div class="container">
@@ -97,7 +77,8 @@
                         <th scope="col"></th>
                         <th scope="col">Дата</th>
                         <th scope="col">Услуга</th>
-                        <th scope="col">Адресс/Пользователь</th>
+                        <th scope="col">Адресс</th>
+                        <th scope="col">Пользователь</th>
                     </tr>
                     </thead>
                     <tbody>';
@@ -108,7 +89,8 @@
                             <th scope="row">' . $i . '</th>
                             <td>' . $item['date'] . '</td>
                             <td>' . $item['ser'] . '</td>
-                            <td>' . $item['cust_adress'] . ' / ' . $item['c_ln'] . '</td>
+                            <td>' . $item['cust_adress'] . '</td>
+                            <td>' . $item['c_ln'] . '</td>
                         </tr>
                         ';
                         $i++;
@@ -124,9 +106,7 @@
     </div>
 </main>
 <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">Made by Виноградова Екатерина.</span>
-    </div>
+    <?php require_once ('../templates/footer.php')?>
 </footer>
 </body>
 </html>
