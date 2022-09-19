@@ -27,6 +27,7 @@
                     echo '<li><a href="vendor/order" class="nav-link px-2 text-white">Заказ</a></li>';
                 }
                 ?>
+                <li><a href="pages/empSchedule.php" class="nav-link px-2 text-white">Расписание</a></li>
             </ul>
             <?php
             if(!isset($_COOKIE['role'])){
