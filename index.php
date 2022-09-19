@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Главная</title>
     <!-- CSS only -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -22,6 +22,9 @@
                 <?php
                 if (isset($_COOKIE['role']) && $_COOKIE['role'] != 2) {
                     echo '<li><a href="pages/my_page.php" class="nav-link px-2 text-white">Личный кабинет</a></li>';
+                } else {
+                    echo '<li><a href="pages/edit_equip.php" class="nav-link px-2 text-white">Учёт оборудования</a></li>
+                    <li><a href="../pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
                 }
                 if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
                     echo '<li><a href="vendor/order" class="nav-link px-2 text-white">Заказ</a></li>';

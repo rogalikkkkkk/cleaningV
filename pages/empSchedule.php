@@ -1,3 +1,6 @@
+<?php
+require_once ('../vendor/load_services.php');
+?>
 <!DOCTYPE HTML>
 <html lang="en" class="h-100">
 <head>
@@ -59,10 +62,9 @@
                     <label for="service" class="form-label">Выберите услугу</label>
                     <select class="form-control" name="service">
                         <?php
-                        $empSch = [['name'=> 'услуга', 'id' => '1']];
-                        foreach ($empSch as $emp) {
-                            print "<option value=" . $emp['name'] . ">";
-                            print $emp['id'];
+                        foreach ($res_services_list as $emp) {
+                            print "<option value=" . $emp['id'] . ">";
+                            print $emp['name'];
                             echo("</option>");
                         }
                         ?>
