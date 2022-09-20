@@ -19,18 +19,31 @@
 <main class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">Заказ</h1>
+
         <form action='order_cont.php' method="post">
-            <select class="form-control" name="service">
-                <?php
-                foreach ($res_all_serv as $ser) {
-                    print "<option value=" . $ser['id'] . ">";
-                    print $ser['name'];
-                    echo("</option>");
-                }
-                ?>
-            </select>
-            <input type="date" name="date" required>
-            <button type="submit" class="btn btn-warning" name="order_f" value="">Продолжить</button>
+            <div class="row user_info">
+                <div class="col-3"></div>
+                <div class="col-6 ">
+                    <select class="form-control" name="service">
+                    <?php
+                    foreach ($res_all_serv as $ser) {
+                        print "<option value=" . $ser['id'] . ">";
+                        print $ser['name'];
+                        echo("</option>");
+                    }
+                    ?>
+                    </select>
+                </div>
+            </div>
+            <div class="row user_info mt-2">
+                <div class="col-3"></div>
+                <div class="col-3">
+                    <input type="date" name="date" required>
+                </div>
+                <div class="col-3 text-end">
+                    <button type="submit" class="btn btn-warning" name="order_f" value="">Продолжить</button>
+                </div>
+
         </form>
     </div>
 </main>
