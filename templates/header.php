@@ -1,7 +1,5 @@
 <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
-
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="../index.php" class="nav-link px-2 text-white">Главная</a></li>
             <?php
@@ -12,7 +10,7 @@
                     <li><a href="../pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
             }
             if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
-                echo '<li><a href="../pages/empSchedule.php" class="nav-link px-2 text-white">Заказ</a></li>';
+                echo '<li><a href="../pages/order.php" class="nav-link px-2 text-white">Заказ</a></li>';
             }
             ?>
         </ul>
