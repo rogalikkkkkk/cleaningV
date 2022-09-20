@@ -1,0 +1,11 @@
+.checkboxcontainer {
+    border:2px solid #ccc;
+    height: 7vh;
+    overflow-y: scroll;
+}
+.checkboxcontainer{
+    width: 100%;
+}
+.checkboxcontainer input{
+    margin-left: 30%;
+}
