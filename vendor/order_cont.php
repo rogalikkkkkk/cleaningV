@@ -18,7 +18,7 @@ $addr_by_user->execute(array(':i' => $_COOKIE['user_id']));
 $addresses = $addr_by_user->fetchAll();
 if (empty($addresses))
 {
-    $_SESSION['warning'] = 'Добавьте адрес, прежде чем делать заказ!';
+    $_SESSION['message'] = 'Добавьте адрес, прежде чем делать заказ!';
     // header();
 }
 ?>
