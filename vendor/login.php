@@ -40,7 +40,4 @@ if (isset($_POST['login']) && isset($_POST['password']) || (isset($_COOKIE['logi
     }
     setcookie('role', $role, 0, '/');
     header('Location: ../index.php');
-} else {
-    echo 'pizdisha';
 }
-
