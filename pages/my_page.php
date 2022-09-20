@@ -1,4 +1,8 @@
-<?php require_once ('../vendor/my_page.php')?>
+<?php require_once ('../vendor/my_page.php');
+if($_COOKIE['role'] == 2) {
+    header('Location: ../index.php');
+}
+?>
 <!DOCTYPE HTML>
 <html lang="en" class="h-100">
 <head>

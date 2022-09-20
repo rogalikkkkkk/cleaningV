@@ -12,7 +12,7 @@
                     <li><a href="../pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
             }
             if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
-                echo '<li><a href="../pages/empSchedule.php" class="nav-link px-2 text-white">Заказ</a></li>';
+                echo '<li><a href="../pages/order.php" class="nav-link px-2 text-white">Заказ</a></li>';
             }
             ?>
         </ul>
