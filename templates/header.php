@@ -13,6 +13,8 @@
             }
             if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
                 echo '<li><a href="../pages/order.php" class="nav-link px-2 text-white">Заказ</a></li>';
+            }elseif (isset($_COOKIE['role']) && $_COOKIE['role'] == 1){
+                echo '<li><a href="../pages/list_emp_serv.php" class="nav-link px-2 text-white">Список услуг</a></li>';
             }
             ?>
         </ul>
