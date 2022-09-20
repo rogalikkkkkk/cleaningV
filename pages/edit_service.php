@@ -12,7 +12,7 @@ require_once ('../vendor/get_all_services.php');
     <!-- CSS only -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link href="../assets/css/index_css.css" rel="stylesheet">
+    <link href="../assets/css/edit_serv_css.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
 <header class="p-3 text-bg-dark">
@@ -23,15 +23,20 @@ require_once ('../vendor/get_all_services.php');
         <h1 class="mt-5">Редактирование услуг</h1>
         <div class="row user_info">
             <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-6 ">
                 <form action="../vendor/add_service.php" method="post">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Название">
                     <input type="number" class="form-control mt-2" id="cost" name="cost" placeholder="Стоимость">
+                    <div class="checkboxcontainer mt-2">
+                        <?php
+                        foreach ($res_all_equip as $res){
+                            echo'<input name="eqp[]" type="checkbox" value='.$res['id'].'> '.$res['name'].'<br />';
+                        }
+                        ?>
+                    </div>
                     <div class="text-end"><button type="submit" class="btn btn-warning mt-2"> Добавить</button></div>
 
                 </form>
-<!--                TODO: тут добавление услуги, здесь нужно поле для ввода названия и цены и как-то впихнуть чекбоксами
-                    TODO: необходимый инвентарь (юзай $res_all_equip) (его может быть несколько у одной услуги)-->
                 <form action="../vendor/delete_service.php" method="post">
                     <table class="table ">
                         <thead>
@@ -39,7 +44,7 @@ require_once ('../vendor/get_all_services.php');
                             <th scope="col"></th>
                             <th scope="col">Название</th>
                             <th scope="col">Стоимость</th>
-                            <th scope="col"></th>
+                            <th scope="col">Оборудование</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,14 +54,16 @@ require_once ('../vendor/get_all_services.php');
                             <td><input name="serv[]" type="checkbox" value='.$res['id'].'></td>
                             <td>'.$res['name'].'</td>
                             <td>'.$res['cost'].'</td>
-                            </tr>';
+                            <td>';
+                            foreach ($res['ename'] as $eq){
+                                echo'<p>'.$eq.'</p>';
+                            }
+                            '</td></tr>';
                         }
                         ?>
                         </tbody>
                     </table>
                     <div class="text-end"><button type="submit" class="btn btn-warning"> Удалить выбранные</button></div>
-                    <!-- TODO: табличка со всеми услугами (юзай $res_all_serv), для каждой нужен чекбокс, имя чекбокса serv[]
-                    TODO: в каждый чекбокс в value класть айди удаляемой позиции-->
                 </form>
             </div>
         </div>
