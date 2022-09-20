@@ -1,4 +1,6 @@
-<?php require_once ('../vendor/get_all_services.php')?>
+<?php
+require_once ('../vendor/order_cont.php');
+?>
 <!DOCTYPE HTML>
 <html lang="en" class="h-100">
 <head>
@@ -19,18 +21,29 @@
 <main class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">Заказ</h1>
-        <form action='order_cont.php' method="post">
-            <select class="form-control" name="service">
+        <form method='post' action='../vendor/save_order.php'>
+            <select class='form-control' name='pos'>
                 <?php
-                foreach ($res_all_serv as $ser) {
-                    print "<option value=" . $ser['id'] . ">";
-                    print $ser['name'];
+                foreach ($emp as $e) {
+                    print "<option value=" . $e['id'] . ">";
+                    print $e['emp'];
                     echo("</option>");
                 }
                 ?>
             </select>
-            <input type="date" name="date" required>
-            <button type="submit" class="btn btn-warning" name="order_f" value="">Продолжить</button>
+            <select class='form-control' name='address'>
+                <?php
+                foreach ($addresses as $a) {
+                    print "<option value=" . $a['add_id'] . ">";
+                    print $a['address'];
+                    echo("</option>");
+                }
+                ?>
+            </select>
+            <input type = 'hidden' name="service" value="<?=$serv?>">
+            <input type = 'hidden' name="date" value="<?=$date?>">
+
+            <button type="submit" class="btn btn-warning" name="order">Продолжить</button>
         </form>
     </div>
 </main>
@@ -39,3 +52,4 @@
 </footer>
 </body>
 </html>
+
