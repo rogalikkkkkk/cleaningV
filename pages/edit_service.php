@@ -25,78 +25,39 @@ require_once ('../vendor/get_all_services.php');
             <div class="col-3"></div>
             <div class="col-6">
                 <form action="../vendor/add_service.php" method="post">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Название">
+                    <input type="number" class="form-control mt-2" id="cost" name="cost" placeholder="Стоимость">
+                    <div class="text-end"><button type="submit" class="btn btn-warning mt-2"> Добавить</button></div>
+
+                </form>
+<!--                TODO: тут добавление услуги, здесь нужно поле для ввода названия и цены и как-то впихнуть чекбоксами
+                    TODO: необходимый инвентарь (юзай $res_all_equip) (его может быть несколько у одной услуги)-->
+                <form action="../vendor/delete_service.php" method="post">
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Стоимость</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ($res_all_serv as $res){
+                            echo'<tr>
+                            <td><input name="serv[]" type="checkbox" value='.$res['id'].'></td>
+                            <td>'.$res['name'].'</td>
+                            <td>'.$res['cost'].'</td>
+                            </tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                    <div class="text-end"><button type="submit" class="btn btn-warning"> Удалить выбранные</button></div>
                     <!-- TODO: табличка со всеми услугами (юзай $res_all_serv), для каждой нужен чекбокс, имя чекбокса serv[]
                     TODO: в каждый чекбокс в value класть айди удаляемой позиции-->
-                    <button type="submit" class="btn"> Удалить</button>
                 </form>
-
-            </div>
-        </div>
-        <div class="row order">
-            <div class="col-"></div>
-            <div class="col-8 ">
-
-                <?php
-                if ($_COOKIE['role'] == 0) {
-                    echo '
-                    <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Дата</th>
-                        <th scope="col">Услуга</th>
-                        <th scope="col">Работник</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
-                    $i = 1;
-                    foreach ($order_array as &$item) {
-                        echo '
-                        <tr>
-                            <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
-                            <td>' . $item['ser'] . '</td>
-                            <td>' . $item['e_ln'] . '</td>
-                        </tr>
-                        ';
-                        $i++;
-                    }
-                    echo '
-                    </tbody>
-                    </table>
-                    ';
-                } elseif ($_COOKIE['role'] == 1) {
-                    echo '
-                    <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Дата</th>
-                        <th scope="col">Услуга</th>
-                        <th scope="col">Адресс</th>
-                        <th scope="col">Пользователь</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
-                    $i = 1;
-                    foreach ($res_empl_job as &$item) {
-                        echo '
-                        <tr>
-                            <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
-                            <td>' . $item['ser'] . '</td>
-                            <td>' . $item['cust_adress'] . '</td>
-                            <td>' . $item['c_ln'] . '</td>
-                        </tr>
-                        ';
-                        $i++;
-                    }
-                    echo '
-                    </tbody>
-                    </table>
-                    ';
-                }
-                ?>
             </div>
         </div>
     </div>
