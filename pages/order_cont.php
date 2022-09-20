@@ -21,30 +21,36 @@ require_once ('../vendor/order_cont.php');
 <main class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">Заказ</h1>
-        <form method='post' action='../vendor/save_order.php'>
-            <select class='form-control' name='pos'>
-                <?php
-                foreach ($emp as $e) {
-                    print "<option value=" . $e['id'] . ">";
-                    print $e['emp'];
-                    echo("</option>");
-                }
-                ?>
-            </select>
-            <select class='form-control' name='address'>
-                <?php
-                foreach ($addresses as $a) {
-                    print "<option value=" . $a['add_id'] . ">";
-                    print $a['address'];
-                    echo("</option>");
-                }
-                ?>
-            </select>
-            <input type = 'hidden' name="service" value="<?=$serv?>">
-            <input type = 'hidden' name="date" value="<?=$date?>">
+        <div class="row user_info">
+            <div class="col-3"></div>
+            <div class="col-6 ">
+                <form method='post' action='../vendor/save_order.php'>
+                    <select class='form-control' name='pos'>
+                        <?php
+                        foreach ($emp as $e) {
+                            print "<option value=" . $e['id'] . ">";
+                            print $e['emp'];
+                            echo("</option>");
+                        }
+                        ?>
+                    </select>
+                    <select class='form-control mt-2' name='address'>
+                        <?php
+                        foreach ($addresses as $a) {
+                            print "<option value=" . $a['add_id'] . ">";
+                            print $a['address'];
+                            echo("</option>");
+                        }
+                        ?>
+                    </select>
+                    <input type = 'hidden' name="service" value="<?=$serv?>">
+                    <input type = 'hidden' name="date" value="<?=$date?>">
 
-            <button type="submit" class="btn btn-warning" name="order">Продолжить</button>
-        </form>
+                    <div class="text-end"><button type="submit" class="btn btn-warning mt-2" name="order">Продолжить</button></div>
+                </form>
+            </div>
+        </div>
+
     </div>
 </main>
 <footer class="footer mt-auto py-3 bg-light">
