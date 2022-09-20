@@ -24,7 +24,7 @@ require_once ('../vendor/get_all_services.php');
         <div class="row user_info">
             <div class="col-3"></div>
             <div class="col-6">
-                <form action="../vendor/add_service.php">
+                <form action="../vendor/add_service.php" method="post">
                     <input type="text" name="name">
                     <input type="number" name="cost">
                     <input type="text">
@@ -33,7 +33,7 @@ require_once ('../vendor/get_all_services.php');
                 </form>
 <!--                TODO: тут добавление услуги, здесь нужно поле для ввода названия и цены и как-то впихнуть чекбоксами
                     TODO: необходимый инвентарь (юзай $res_all_equip) (его может быть несколько у одной услуги)-->
-                <form action="../vendor/delete_service.php">
+                <form action="../vendor/delete_service.php" method="post">
                     <!-- TODO: табличка со всеми услугами (юзай $res_all_serv), для каждой нужен чекбокс, имя чекбокса serv[]
                     TODO: в каждый чекбокс в value класть айди удаляемой позиции-->
                     <button type="submit" class="btn"> Удалить</button>
