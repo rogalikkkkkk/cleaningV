@@ -6,6 +6,7 @@ if (isset($_REQUEST['service']) && isset($_REQUEST['date'])) {
 call getEmpByServ(:i)
 ');
     $serv = $_REQUEST['service'];
+    $date = $_REQUEST['date'];
     $emp_by_serv->execute(array(':i' => $_REQUEST['service']));
     $emp = $emp_by_serv->fetchAll();
     $emp_by_serv->closeCursor();
@@ -15,4 +16,9 @@ call getAddressByUser(:i)
 ');
 $addr_by_user->execute(array(':i' => $_COOKIE['user_id']));
 $addresses = $addr_by_user->fetchAll();
+if (empty($addresses))
+{
+    $_SESSION['warning'] = 'Добавьте адрес, прежде чем делать заказ!';
+    // header();
+}
 ?>

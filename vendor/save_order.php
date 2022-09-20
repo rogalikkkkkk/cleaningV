@@ -1,18 +1,11 @@
 <?php
 require_once('pdo_insert.php');
 
-if (isset($_REQUEST['service']) && isset($_REQUEST['date'])) {
-    $emp_by_serv = $pdo->prepare('
-call getEmpByServ(:i)
-');
-    $serv = $_REQUEST['service'];
-    $emp_by_serv->execute(array(':i' => $_REQUEST['service']));
-    $emp = $emp_by_serv->fetchAll();
-    $emp_by_serv->closeCursor();
+if (isset($_POST['order'])) {
+    $create_order = $pdo->prepare('
+    INSERT INTO order (order_time, address_id, position_id)
+  VALUES (:o, :a, :p);');
+    $create_order->execute(array(':o' => $_POST['date'], ':a' => $_POST['address'], ':p' => $_POST['pos']));
+    header('Location: ../index.php');
 }
-$addr_by_user = $pdo->prepare('
-call getAddressByUser(:i)
-');
-$addr_by_user->execute(array(':i' => $_COOKIE['user_id']));
-$addresses = $addr_by_user->fetchAll();
 ?>

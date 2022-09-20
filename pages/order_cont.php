@@ -22,7 +22,7 @@ require_once ('../vendor/order_cont.php');
     <div class="container">
         <h1 class="mt-5">Заказ</h1>
         <form method='post' action='../vendor/save_order.php'>
-            <select class='form-control' name='emp'>
+            <select class='form-control' name='pos'>
                 <?php
                 foreach ($emp as $e) {
                     print "<option value=" . $e['id'] . ">";
@@ -41,6 +41,8 @@ require_once ('../vendor/order_cont.php');
                 ?>
             </select>
             <input type = 'hidden' name="service" value="<?=$serv?>">
+            <input type = 'hidden' name="service" value="<?=$date?>">
+
             <button type="submit" class="btn btn-warning" name="order">Продолжить</button>
         </form>
     </div>
