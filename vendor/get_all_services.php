@@ -3,7 +3,7 @@ require_once ('pdo_insert.php');
 
 $all_serv = $pdo->prepare('
 select services.id as sid,services.name as aname, services.cost as cost, eq.name as ename 
-from services left outer join services_equipment as s_e on services.id=s_e.service_id join equipment as eq on eq.id=s_e.equipment_id
+from services join services_equipment as s_e on services.id=s_e.service_id join equipment as eq on eq.id=s_e.equipment_id
 ');
 $all_serv->execute();
 $res_serv = $all_serv->fetchAll();
