@@ -58,7 +58,6 @@ require_once ('../vendor/get_all_services.php');
                     <!-- TODO: табличка со всеми услугами (юзай $res_all_serv), для каждой нужен чекбокс, имя чекбокса serv[]
                     TODO: в каждый чекбокс в value класть айди удаляемой позиции-->
                 </form>
-
             </div>
         </div>
     </div>
