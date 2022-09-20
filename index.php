@@ -21,7 +21,7 @@
                 <?php
                 if (isset($_COOKIE['role']) && $_COOKIE['role'] != 2) {
                     echo '<li><a href="pages/my_page.php" class="nav-link px-2 text-white">Личный кабинет</a></li>';
-                } else {
+                } elseif (isset($_COOKIE['role'])&& $_COOKIE['role']==2) {
                     echo '<li><a href="pages/edit_equip.php" class="nav-link px-2 text-white">Учёт оборудования</a></li>
                     <li><a href="pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
                 }
