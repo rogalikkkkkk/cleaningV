@@ -21,3 +21,4 @@ insert into services_equipment (equipment_id, service_id) values (:ei, :si)
 foreach ($_POST['eqp'] as &$item) {
     $add_serv_eqp->execute(array(':ei' => $item, ':si' => $new_serv_id));
 }
+header('Location: ../pages/edit_service.php');
