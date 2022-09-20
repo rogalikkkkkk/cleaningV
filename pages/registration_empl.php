@@ -22,27 +22,27 @@
         <h1 class="h3 mb-3 fw-normal">Введите данные</h1>
 
         <div class="form-floating">
-            <input type="email" class="form-control" name="login" id="floatingInput" placeholder="login">
+            <input type="email" class="form-control" name="login" id="floatingInput" placeholder="login" required>
             <label for="floatingInput">Логин</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" name="pass" id="floatingPassword" placeholder="password">
+            <input type="password" class="form-control" name="pass" id="floatingPassword" placeholder="password" required>
             <label for="floatingPassword">Пароль</label>
         </div>
         <div class="form-floating">
-            <input type="text" class="form-control" name="name" id="floatingPassword" placeholder="name">
+            <input type="text" class="form-control" name="name" id="floatingPassword" placeholder="name" required>
             <label for="floatingPassword">Имя</label>
         </div>
         <div class="form-floating">
-            <input type="text" class="form-control" name="lname" id="floatingPassword" placeholder="lastname">
+            <input type="text" class="form-control" name="lname" id="floatingPassword" placeholder="lastname" required>
             <label for="floatingPassword">Фамилия</label>
         </div>
         <div class="form-floating">
-            <input type="text" class="form-control" name="pname" id="floatingPassword" placeholder="patrname">
+            <input type="text" class="form-control" name="pname" id="floatingPassword" placeholder="patrname" required>
             <label for="floatingPassword">Отчество</label>
         </div>
         <div class="form-floating">
-            <input type="number" class="form-control" name="elvl" id="floatingPassword" placeholder="elvl">
+            <input type="number" class="form-control" name="elvl" id="floatingPassword" placeholder="elvl" required>
             <label for="floatingPassword">Уровень мастерства</label>
         </div>
 

@@ -27,8 +27,8 @@ if($_COOKIE['role'] != 2) {
             <div class="col-3"></div>
             <div class="col-6">
                 <form action="../vendor/add_equipment.php" method="post">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Название">
-                    <input type="number" class="form-control mt-2" id="numb" name="numb" placeholder="Количество">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Название" required>
+                    <input type="number" class="form-control mt-2" id="numb" name="numb" placeholder="Количество" required>
                     <div class="text-end"><button type="submit" class="btn btn-warning mt-2"> Добавить</button></div>
                 </form>
                 <form action="../vendor/delete_equipment.php" method="post">

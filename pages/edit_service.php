@@ -28,8 +28,8 @@ if($_COOKIE['role'] != 2) {
             <div class="col-3"></div>
             <div class="col-6 ">
                 <form action="../vendor/add_service.php" method="post">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Название">
-                    <input type="number" class="form-control mt-2" id="cost" name="cost" placeholder="Стоимость">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Название" required>
+                    <input type="number" class="form-control mt-2" id="cost" name="cost" placeholder="Стоимость" required>
                     <div class="checkboxcontainer mt-2">
                         <?php
                         foreach ($res_all_equip as $res){
