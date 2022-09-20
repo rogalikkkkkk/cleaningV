@@ -16,7 +16,6 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-<!--zhopa-->
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link px-2 text-secondary">Главная</a></li>
                 <?php
@@ -24,13 +23,12 @@
                     echo '<li><a href="pages/my_page.php" class="nav-link px-2 text-white">Личный кабинет</a></li>';
                 } else {
                     echo '<li><a href="pages/edit_equip.php" class="nav-link px-2 text-white">Учёт оборудования</a></li>
-                    <li><a href="../pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
+                    <li><a href="pages/edit_service.php" class="nav-link px-2 text-white">Редактирование услуг</a></li>';
                 }
                 if (isset($_COOKIE['role']) && $_COOKIE['role'] == 0) {
-                    echo '<li><a href="vendor/order" class="nav-link px-2 text-white">Заказ</a></li>';
+                    echo '<li><a href="pages/empSchedule.php" class="nav-link px-2 text-white">Заказ</a></li>';
                 }
                 ?>
-                <li><a href="pages/empSchedule.php" class="nav-link px-2 text-white">Расписание</a></li>
             </ul>
             <?php
             if(!isset($_COOKIE['role'])){
