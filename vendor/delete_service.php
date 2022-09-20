@@ -3,7 +3,7 @@
 require_once ('pdo_insert.php');
 
 $delete_services = $pdo->prepare('
-delete from equipment where id = :i;
+delete from services where id = :i;
 ');
 
 foreach ($_POST['serv'] as &$item) {

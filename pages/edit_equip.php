@@ -23,85 +23,33 @@
             <div class="col-3"></div>
             <div class="col-6">
                 <form action="../vendor/add_equipment.php" method="post">
-                    <input type="text" id="name" name="name">
-                    <label for="name">Наименование</label>
-                    <input type="number" id="numb" name="numb">
-                    <label for="numb">Количество</label>
-                    <button class="btn btn-warning" type="submit"> Сделяль</button>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Название">
+                    <input type="number" class="form-control mt-2" id="numb" name="numb" placeholder="Количество">
+                    <div class="text-end"><button type="submit" class="btn btn-warning mt-2"> Добавить</button></div>
                 </form>
-                <form action="../vendor/delete_equipment.php">
-<!--                TODO: табличка со всеми позициями (юзай $res_all_equip), для каждой нужен чекбокс, имя чекбокса equip[]
-                    TODO: в каждый чекбокс в value класть айди удаляемой позиции-->
-                    <button type="submit" class="btn"> Удалить</button>
+                <form action="../vendor/delete_equipment.php" method="post">
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Количество</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ($res_all_equip as $res){
+                            echo'<tr>
+                            <td><input name="equip[]" type="checkbox" value='.$res['id'].'></td>
+                            <td>'.$res['name'].'</td>
+                            <td>'.$res['total'].'</td>
+                            </tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                    <div class="text-end"><button type="submit" class="btn btn-warning"> Удалить выбранные</button></div>
                 </form>
-<!--                TODO: нарисовать кнопочки для создания оборуд (название и количество) -->
-            </div>
-        </div>
-        <div class="row order">
-            <div class="col-"></div>
-            <div class="col-8 ">
-
-                <?php
-                if ($_COOKIE['role'] == 0) {
-                    echo '
-                    <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Дата</th>
-                        <th scope="col">Услуга</th>
-                        <th scope="col">Работник</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
-                    $i = 1;
-                    foreach ($order_array as &$item) {
-                        echo '
-                        <tr>
-                            <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
-                            <td>' . $item['ser'] . '</td>
-                            <td>' . $item['e_ln'] . '</td>
-                        </tr>
-                        ';
-                        $i++;
-                    }
-                    echo '
-                    </tbody>
-                    </table>
-                    ';
-                } elseif ($_COOKIE['role'] == 1) {
-                    echo '
-                    <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Дата</th>
-                        <th scope="col">Услуга</th>
-                        <th scope="col">Адресс</th>
-                        <th scope="col">Пользователь</th>
-                    </tr>
-                    </thead>
-                    <tbody>';
-                    $i = 1;
-                    foreach ($res_empl_job as &$item) {
-                        echo '
-                        <tr>
-                            <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
-                            <td>' . $item['ser'] . '</td>
-                            <td>' . $item['cust_adress'] . '</td>
-                            <td>' . $item['c_ln'] . '</td>
-                        </tr>
-                        ';
-                        $i++;
-                    }
-                    echo '
-                    </tbody>
-                    </table>
-                    ';
-                }
-                ?>
             </div>
         </div>
     </div>
