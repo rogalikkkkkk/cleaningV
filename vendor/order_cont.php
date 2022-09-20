@@ -3,11 +3,11 @@ require_once('pdo_insert.php');
 
 if (isset($_REQUEST['service']) && isset($_REQUEST['date'])) {
     $emp_by_serv = $pdo->prepare('
-call getEmpByServ(:i)
+call getEmpByServ(:i, :d)
 ');
     $serv = $_REQUEST['service'];
     $date = $_REQUEST['date'];
-    $emp_by_serv->execute(array(':i' => $_REQUEST['service']));
+    $emp_by_serv->execute(array(':i' => $_REQUEST['service'], ':d' => $_REQUEST['date']));
     $emp = $emp_by_serv->fetchAll();
     $emp_by_serv->closeCursor();
 }

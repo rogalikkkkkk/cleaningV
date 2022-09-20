@@ -41,7 +41,7 @@ require_once ('../vendor/order_cont.php');
                 ?>
             </select>
             <input type = 'hidden' name="service" value="<?=$serv?>">
-            <input type = 'hidden' name="service" value="<?=$date?>">
+            <input type = 'hidden' name="date" value="<?=$date?>">
 
             <button type="submit" class="btn btn-warning" name="order">Продолжить</button>
         </form>
