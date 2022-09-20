@@ -16,21 +16,7 @@ require_once ('../vendor/load_services.php');
 </head>
 <body class="d-flex flex-column h-100">
 <header class="p-3 text-bg-dark">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">Главная</a></li>
-                <li><a href="../php/my_page.php" class="nav-link px-2 text-white">Личный кабинет</a></li>
-                <li><a href="#" class="nav-link px-2 text-secondary">Заказ</a></li>
-            </ul>
-            <form method="post" action="..php/log.php">
-                <div class="text-end">
-                    <input type="submit" name="log" value="Войти" class="btn btn-outline-light me-2"></input>
-                    <input type="submit" name="reg" value="Зарегистрироваться" class="btn btn-warning"></input>
-                </div>
-            </form>
-        </div>
-    </div>
+    <?php require_once ('../templates/header.php')?>
 </header>
 <main class="flex-shrink-0">
     <div class="container">
@@ -76,9 +62,7 @@ require_once ('../vendor/load_services.php');
     </div>
 </main>
 <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">Made by Виноградова Екатерина.</span>
-    </div>
+    <?php require_once ('../templates/footer.php')?>
 </footer>
 </body>
 </html>
