@@ -1,10 +1,9 @@
 <?php
+session_start();
 require_once('pdo_insert.php');
 
 if (isset($_REQUEST['service']) && isset($_REQUEST['date'])) {
-    $emp_by_serv = $pdo->prepare('
-call getEmpByServ(:i, :d)
-');
+    $emp_by_serv = $pdo->prepare('call getEmpByServ(:i, :d)');
     $serv = $_REQUEST['service'];
     $date = $_REQUEST['date'];
     $emp_by_serv->execute(array(':i' => $_REQUEST['service'], ':d' => $_REQUEST['date']));
@@ -19,6 +18,6 @@ $addresses = $addr_by_user->fetchAll();
 if (empty($addresses))
 {
     $_SESSION['message'] = 'Добавьте адрес, прежде чем делать заказ!';
-    // header();
+    header('Location: ../pages/addresses.php');
 }
 ?>

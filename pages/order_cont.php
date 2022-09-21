@@ -25,28 +25,32 @@ require_once ('../vendor/order_cont.php');
             <div class="col-3"></div>
             <div class="col-6 ">
                 <form method='post' action='../vendor/save_order.php'>
-                    <select class='form-control' name='pos'>
                         <?php
-                        foreach ($emp as $e) {
-                            print "<option value=" . $e['id'] . ">";
-                            print $e['emp'];
-                            echo("</option>");
+                        if (empty($emp))
+                        {
+                            echo '<div class="text-center"><p>Упс! На эту дату нет свободных работников</p></div>';
+                        }else
+                        {
+                            echo "<select class='form-control' name='pos'>";
+                            foreach ($emp as $e)
+                            {
+                                print "<option value=" . $e['id'] . ">";
+                                print $e['emp'];
+                                echo("</option>");
+                            }
+                            echo "</select>";
+                            echo "<select class='form-control mt-2' name='address'>";
+                            foreach ($addresses as $a) {
+                                print "<option value=" . $a['add_id'] . ">";
+                                print $a['address'];
+                                echo("</option>");
+                            }
+                            echo "</select>
+                            <input type = 'hidden' name='service' value=".$serv.">
+                            <input type = 'hidden' name='date' value=".$date.">
+                            <div class='text-end'><button type='submit' class='btn btn-warning mt-2' name='order'>Продолжить</button></div>";
                         }
                         ?>
-                    </select>
-                    <select class='form-control mt-2' name='address'>
-                        <?php
-                        foreach ($addresses as $a) {
-                            print "<option value=" . $a['add_id'] . ">";
-                            print $a['address'];
-                            echo("</option>");
-                        }
-                        ?>
-                    </select>
-                    <input type = 'hidden' name="service" value="<?=$serv?>">
-                    <input type = 'hidden' name="date" value="<?=$date?>">
-
-                    <div class="text-end"><button type="submit" class="btn btn-warning mt-2" name="order">Продолжить</button></div>
                 </form>
             </div>
         </div>

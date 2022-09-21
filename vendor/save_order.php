@@ -9,5 +9,5 @@ if (isset($_POST['order'])) {
   VALUES (:o, :a, :p, :on);");
     $create_order->execute(array(':o' => $date, ':a' => $_POST['address'], ':p' => $_POST['pos'], ':on' => $num));
     require_once ('mail.php');
-    header('Location: ../index.php');
+    header('Location: ../pages/my_page.php');
 }

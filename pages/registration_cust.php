@@ -45,6 +45,10 @@
             <input type="text" class="form-control" name="phone" id="floatingPassword" placeholder="phone" required>
             <label for="floatingPassword">Телефон</label>
         </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" name="email" id="floatingPassword" placeholder="email" required>
+            <label for="floatingPassword">Почта</label>
+        </div>
 
         <?php
             if(isset($_SESSION['message'])) {

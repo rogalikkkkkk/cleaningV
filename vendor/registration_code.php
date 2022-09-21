@@ -14,8 +14,8 @@ if(isset($_POST['employee'])){
         header("Location: ../pages/registration_empl.php");
     }
     else{
-        $create_empl = $pdo->prepare("call create_empl(?,?,?,?,?,?)");
-        $create_empl->execute(array($_POST['name'],$_POST['lname'],$_POST['pname'],$_POST['login'],$_POST['pass'],$_POST['elvl']));
+        $create_empl = $pdo->prepare("call create_empl(?,?,?,?,?,?,?)");
+        $create_empl->execute(array($_POST['name'],$_POST['lname'],$_POST['pname'],$_POST['login'],$_POST['pass'],$_POST['elvl'],$_POST['email']));
         setcookie('login', $_POST['login'], 0, '/');
         setcookie('pass', $_POST['pass'], 0, '/');
         header("Location: login.php");
@@ -29,8 +29,8 @@ if(isset($_POST['employee'])){
         $_SESSION['message'] = 'Пользователь с таким логином уже существует';
         header("Location: ../pages/registration_cust.php");
     } else {
-        $create_empl = $pdo->prepare("call create_cust(?,?,?,?,?,?)");
-        $create_empl->execute(array($_POST['name'],$_POST['lname'],$_POST['pname'],$_POST['login'],$_POST['pass'],$_POST['phone']));
+        $create_empl = $pdo->prepare("call create_cust(?,?,?,?,?,?,?)");
+        $create_empl->execute(array($_POST['name'],$_POST['lname'],$_POST['pname'],$_POST['login'],$_POST['pass'],$_POST['phone'],$_POST['email']));
         setcookie('login', $_POST['login'], 0, '/');
         setcookie('pass', $_POST['pass'], 0, '/');
         header("Location: login.php");

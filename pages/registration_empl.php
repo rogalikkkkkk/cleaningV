@@ -22,7 +22,7 @@
         <h1 class="h3 mb-3 fw-normal">Введите данные</h1>
 
         <div class="form-floating">
-            <input type="email" class="form-control" name="login" id="floatingInput" placeholder="login" required>
+            <input type="text" class="form-control" name="login" id="floatingInput" placeholder="login" required>
             <label for="floatingInput">Логин</label>
         </div>
         <div class="form-floating">
@@ -44,6 +44,10 @@
         <div class="form-floating">
             <input type="number" class="form-control" name="elvl" id="floatingPassword" placeholder="elvl" required>
             <label for="floatingPassword">Уровень мастерства</label>
+        </div>
+        <div class="form-floating">
+            <input type="email" class="form-control" name="email" id="floatingPassword" placeholder="email" required>
+            <label for="floatingPassword">Почта</label>
         </div>
 
         <?php

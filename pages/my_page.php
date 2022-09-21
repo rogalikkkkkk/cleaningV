@@ -62,7 +62,7 @@ if($_COOKIE['role'] == 2) {
                         echo '
                         <tr>
                             <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
+                            <td>' . substr($item['date'], 0, 10) . '</td>
                             <td>' . $item['ser'] . '</td>
                             <td>' . $item['e_ln'] . '</td>
                         </tr>
@@ -91,7 +91,7 @@ if($_COOKIE['role'] == 2) {
                         echo '
                         <tr>
                             <th scope="row">' . $i . '</th>
-                            <td>' . $item['date'] . '</td>
+                            <td>' . substr($item['date'], 0, 10) . '</td>
                             <td>' . $item['ser'] . '</td>
                             <td>' . $item['cust_adress'] . '</td>
                             <td>' . $item['c_ln'] . '</td>
